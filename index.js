@@ -8,21 +8,7 @@ var fs = require('fs');
 client.on("guildCreate", async (guild) => {
   // This event triggers when the bot joins a guild.
   console.log(`New guild joined: ${guild.name} (id: ${guild.id}). This guild has ${guild.memberCount} members!`);
-  var channelCreated = await guild.createChannel('ticket-bot',{
-    type:'text',
-  })
-  var channelCategory = await guild.createChannel('Tickets',{
-           type:'category',
-         })
-
-         let ticketEmbed = new Discord.RichEmbed()
-       .setTitle(config.title)
-       .setDescription(`To create a ticket react with :tickets:`)
-       .setColor(config.embedColor)
-       .setTimestamp()
-       .setFooter(config.footer);
-
- guild.channels.get(channelCreated.id).send({embed:ticketEmbed}).then((message)=>{message.react('🎟️')});
+  
 
   client.user.setPresence({ game: { name: `issues in ${client.guilds.size} servers.`,type:"Listening" }, status: 'online' })
 
@@ -45,29 +31,7 @@ client.on("ready", () => {
 
   // This event will run if the bot starts, and logs in, successfully.
   console.log(`Bot has started, with ${client.users.size} users, in ${client.channels.size} channels of ${client.guilds.size} guilds.`);
-  client.guilds.forEach(async(guild) => {
 
-
-      if(!guild.channels.find(c=>c.name==='ticket-bot')){
-        console.log('here')
-        var channel =  await guild.createChannel('ticket-bot',{
-          type:'text'
-        })
-        var channelCategory = await guild.createChannel('Tickets',{
-           type:'category',
-         })
-        console.log("channel created"+channel.name)
-        let ticketEmbed = new Discord.RichEmbed()
-      .setTitle(config.title)
-      .setDescription(`To create a ticket react with :tickets:`)
-      .setColor(config.embedColor)
-      .setTimestamp()
-      .setFooter(config.footer);
-
-client.channels.get(channel.id).send({embed:ticketEmbed}).then((message)=>{message.react('🎟️')});
-      }
-
-  });
 client.user.setPresence({ game: { name: `issues in ${client.guilds.size} servers.`,type:"Listening" }, status: 'online' })
 
 });
@@ -160,6 +124,28 @@ client.on('message',async(message)=>{
 else{
   message.channel.send('The channel `transcripts` doesn\'t exist')
 }
+  }
+  else if(message.content==='_setup'){
+
+
+          if(!message.guild.channels.find(c=>c.name==='ticket-bot')){
+            console.log('here')
+            var channel =  await guild.createChannel('ticket-bot',{
+              type:'text'
+            })
+            var channelCategory = await guild.createChannel('Tickets',{
+               type:'category',
+             })
+            console.log("channel created"+channel.name)
+            let ticketEmbed = new Discord.RichEmbed()
+          .setTitle(config.title)
+          .setDescription(`To create a ticket react with :tickets:`)
+          .setColor(config.embedColor)
+          .setTimestamp()
+          .setFooter(config.footer);
+
+    client.channels.get(channel.id).send({embed:ticketEmbed}).then((message)=>{message.react('🎟️')});
+          }
   }
 })
 
