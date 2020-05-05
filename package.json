@@ -1,0 +1,13 @@
+{
+	"name": "TicketBot",
+	"version": "1.0.0",
+	"description": "Ticket creation bot with transcripts.",
+	"main": "index.js",
+	"author": "Atoo",
+	"scripts": {
+		"start": "node index.js"
+	},
+	"dependencies": {
+		"discord.js": "^11.6.2"
+	}
+}
