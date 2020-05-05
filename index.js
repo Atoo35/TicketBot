@@ -8,7 +8,7 @@ var fs = require('fs');
 client.on("guildCreate", async (guild) => {
   // This event triggers when the bot joins a guild.
   console.log(`New guild joined: ${guild.name} (id: ${guild.id}). This guild has ${guild.memberCount} members!`);
-  
+
 
   client.user.setPresence({ game: { name: `issues in ${client.guilds.size} servers.`,type:"Listening" }, status: 'online' })
 
@@ -130,10 +130,10 @@ else{
 
           if(!message.guild.channels.find(c=>c.name==='ticket-bot')){
             console.log('here')
-            var channel =  await guild.createChannel('ticket-bot',{
+            var channel =  await message.guild.createChannel('ticket-bot',{
               type:'text'
             })
-            var channelCategory = await guild.createChannel('Tickets',{
+            var channelCategory = await message.guild.createChannel('Tickets',{
                type:'category',
              })
             console.log("channel created"+channel.name)
