@@ -153,4 +153,4 @@ else{
   }
 })
 
-client.login('NjgxODQ0NTk5ODAyOTUzNzg0.XnMmew.OyVRakYP5K9Ejje2UXdk5T6P058')
+client.login(process.env.BOT_TOKEN)
