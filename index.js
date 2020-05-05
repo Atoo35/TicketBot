@@ -14,7 +14,7 @@ client.on("guildCreate", async (guild) => {
   var channelCategory = await guild.createChannel('Tickets',{
            type:'category',
          })
-         console.log("channel created"+channel.name)
+        
          let ticketEmbed = new Discord.RichEmbed()
        .setTitle(config.title)
        .setDescription(`To create a ticket react with :tickets:`)
