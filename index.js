@@ -14,6 +14,16 @@ client.on("guildCreate", async (guild) => {
   var channelCategory = await guild.createChannel('Tickets',{
            type:'category',
          })
+         console.log("channel created"+channel.name)
+         let ticketEmbed = new Discord.RichEmbed()
+       .setTitle(config.title)
+       .setDescription(`To create a ticket react with :tickets:`)
+       .setColor(config.embedColor)
+       .setTimestamp()
+       .setFooter(config.footer);
+
+ client.channels.get(channel.id).send({embed:ticketEmbed}).then((message)=>{message.react('🎟️')});
+     
   client.user.setPresence({ game: { name: `issues in ${client.guilds.size} servers.`,type:"Listening" }, status: 'online' })
 
 });
