@@ -133,6 +133,9 @@ else{
             var channel =  await message.guild.createChannel('ticket-bot',{
               type:'text'
             })
+            var transcriptChannel =  await message.guild.createChannel('transcripts',{
+              type:'text'
+            })
             var channelCategory = await message.guild.createChannel('Tickets',{
                type:'category',
              })
@@ -143,7 +146,7 @@ else{
           .setColor(config.embedColor)
           .setTimestamp()
           .setFooter(config.footer);
-
+          transcriptChannel.setParent(channelCategory.id)
     client.channels.get(channel.id).send({embed:ticketEmbed}).then((message)=>{message.react('🎟️')});
           }
   }
