@@ -22,8 +22,8 @@ client.on("guildCreate", async (guild) => {
        .setTimestamp()
        .setFooter(config.footer);
 
- client.channels.get(channel.id).send({embed:ticketEmbed}).then((message)=>{message.react('🎟️')});
-     
+ guild.channels.get(channel.id).send({embed:ticketEmbed}).then((message)=>{message.react('🎟️')});
+
   client.user.setPresence({ game: { name: `issues in ${client.guilds.size} servers.`,type:"Listening" }, status: 'online' })
 
 });
