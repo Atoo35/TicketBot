@@ -153,7 +153,7 @@ client.on('message',async(message)=>{
     for(i=allMessages.length-1;i>=0;i--){
       writeStream.write(allMessages[i]+"\n")
     }
-    var transcriptChannel = client.channels.find(c=>c.name==='transcripts')
+    var transcriptChannel = message.guild.channels.find(c=>c.name==='transcripts')
     transcriptChannel.send("Transcript for "+message.channel.name,{file:'transcript.txt'})
   })
 }
