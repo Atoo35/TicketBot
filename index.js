@@ -98,6 +98,8 @@ client.on('messageReactionAdd',async(messageReaction,user)=>{
 })
 
 client.on('message',async(message)=>{
+  if(message.author.bot)return;
+
   if(message.content==='_close'){
     if(client.channels.find(c=>c.name==='transcripts')){
     var allMessages=[];
@@ -148,6 +150,7 @@ else{
           .setFooter(config.footer);
           transcriptChannel.setParent(channelCategory.id)
     client.channels.get(channel.id).send({embed:ticketEmbed}).then((message)=>{message.react('🎟️')});
+    message.channel.reply('Setup Completed successfully!')
           }
   }
 })
