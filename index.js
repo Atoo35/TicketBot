@@ -150,7 +150,7 @@ else{
           .setFooter(config.footer);
           transcriptChannel.setParent(channelCategory.id)
     client.channels.get(channel.id).send({embed:ticketEmbed}).then((message)=>{message.react('🎟️')});
-    message.channel.reply('Setup Completed successfully!')
+    message.channel.send('Setup Completed successfully!')
           }
   }
 })
