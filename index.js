@@ -103,7 +103,7 @@ client.on('message',async(message)=>{
   if(message.content==='_close'){
 
     var parent = await message.guild.channels.find(r=>r.name === 'Tickets' && r.type==='category')
-    if(message.channel.parentID == parent.id)
+    if(message.channel.parentID != parent.id)
     return;
     if(client.channels.find(c=>c.name==='transcripts')){
     var allMessages=[];
