@@ -101,6 +101,10 @@ client.on('message',async(message)=>{
   if(message.author.bot)return;
 
   if(message.content==='_close'){
+
+    var parent = await messageReaction.message.guild.channels.find(r=>r.name === 'Tickets' && r.type==='category')
+    if(message.channel.parentID == parent.id)
+    return;
     if(client.channels.find(c=>c.name==='transcripts')){
     var allMessages=[];
     message.channel.fetchMessages().then((messages)=>{
