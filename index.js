@@ -13,7 +13,7 @@ client.on("guildCreate", async (guild) => {
   .setColor('36393E')
   .setAuthor('Orange Bots',client.user.displayAvatarURL)
   .setDescription(msg)
-  client.guilds.cache.get('651670086310035457').channels.cache.get('708245760738721822').send({embed:exampleEmbed})
+  client.guilds.get('651670086310035457').channels.get('708245760738721822').send({embed:exampleEmbed})
   client.user.setPresence({ game: { name: `issues in ${client.guilds.size} servers.`,type:"Listening" }, status: 'online' })
 
 });
@@ -28,7 +28,7 @@ client.on("guildDelete", async(guild) => {
   .setColor('36393E')
   .setAuthor('Orange Bots',client.user.displayAvatarURL)
   .setDescription(msg)
-  client.guilds.cache.get('651670086310035457').channels.cache.get('708245760738721822').send({embed:exampleEmbed})
+  client.guilds.get('651670086310035457').channels.get('708245760738721822').send({embed:exampleEmbed})
   client.user.setPresence({ game: { name: `issues in ${client.guilds.size} servers.`,type:"Listening" }, status: 'online' })
 
 
