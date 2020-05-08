@@ -8,8 +8,12 @@ var fs = require('fs');
 client.on("guildCreate", async (guild) => {
   // This event triggers when the bot joins a guild.
   console.log(`New guild joined: ${guild.name} (id: ${guild.id}). This guild has ${guild.memberCount} members!`);
-
-
+  var msg=`New guild joined: ${guild.name} (id: ${guild.id}). This guild has ${guild.memberCount} members!\n Server Count: ${client.guilds.size}`
+  const exampleEmbed =new Discord.RichEmbed()
+  .setColor('36393E')
+  .setAuthor('Orange Bots',client.user.displayAvatarURL)
+  .setDescription(msg)
+  client.guilds.cache.get('651670086310035457').channels.cache.get('708245760738721822').send({embed:exampleEmbed})
   client.user.setPresence({ game: { name: `issues in ${client.guilds.size} servers.`,type:"Listening" }, status: 'online' })
 
 });
@@ -19,6 +23,12 @@ client.on("guildDelete", async(guild) => {
   console.log(`I have been removed from: ${guild.name} (id: ${guild.id})`);
   // var channel = await guild.channels.find(c=>c.name==='ticket-bot')
   // channel.delete();
+  var msg=`I have been removed from: ${guild.name} (id: ${guild.id})!\n Server Count: ${client.guilds.size}`
+  const exampleEmbed =new Discord.RichEmbed()
+  .setColor('36393E')
+  .setAuthor('Orange Bots',client.user.displayAvatarURL)
+  .setDescription(msg)
+  client.guilds.cache.get('651670086310035457').channels.cache.get('708245760738721822').send({embed:exampleEmbed})
   client.user.setPresence({ game: { name: `issues in ${client.guilds.size} servers.`,type:"Listening" }, status: 'online' })
 
 
