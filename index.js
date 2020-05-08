@@ -13,11 +13,13 @@ client.on("guildCreate", async (guild) => {
   // This event triggers when the bot joins a guild.
   console.log(`New guild joined: ${guild.name} (id: ${guild.id}). This guild has ${guild.memberCount} members!`);
   var msg=`New guild joined: ${guild.name} (id: ${guild.id}). This guild has ${guild.memberCount} members!\n Server Count: ${client.guilds.size}`
+
   const exampleEmbed =new Discord.RichEmbed()
   .setColor('36393E')
-  .setAuthor('Orange Bots',client.user.displayAvatarURL)
+  .setAuthor('Ticket Bot',client.user.displayAvatarURL)
   .setDescription(msg)
   client.guilds.get('651670086310035457').channels.get('708245760738721822').send({embed:exampleEmbed})
+
   Boats.postStats(client.guilds.size, '707141747846676572').then(() => {
       console.log('Successfully updated server count.')
   }).catch((err) => {
@@ -30,14 +32,14 @@ client.on("guildCreate", async (guild) => {
 client.on("guildDelete", async(guild) => {
   // this event triggers when the bot is removed from a guild.
   console.log(`I have been removed from: ${guild.name} (id: ${guild.id})`);
-  // var channel = await guild.channels.find(c=>c.name==='ticket-bot')
-  // channel.delete();
+
   var msg=`I have been removed from: ${guild.name} (id: ${guild.id})!\n Server Count: ${client.guilds.size}`
   const exampleEmbed =new Discord.RichEmbed()
   .setColor('36393E')
-  .setAuthor('Orange Bots',client.user.displayAvatarURL)
+  .setAuthor('Ticket Bot',client.user.displayAvatarURL)
   .setDescription(msg)
   client.guilds.get('651670086310035457').channels.get('708245760738721822').send({embed:exampleEmbed})
+
   Boats.postStats(client.guilds.size, '707141747846676572').then(() => {
       console.log('Successfully updated server count.')
   }).catch((err) => {
