@@ -18,7 +18,7 @@ client.on("guildCreate", async (guild) => {
   .setAuthor('Orange Bots',client.user.displayAvatarURL)
   .setDescription(msg)
   client.guilds.get('651670086310035457').channels.get('708245760738721822').send({embed:exampleEmbed})
-  Boats.postStast(client.guilds.size, '707141747846676572').then(() => {
+  Boats.postStats(client.guilds.size, '707141747846676572').then(() => {
       console.log('Successfully updated server count.')
   }).catch((err) => {
       console.error(err)
@@ -38,7 +38,7 @@ client.on("guildDelete", async(guild) => {
   .setAuthor('Orange Bots',client.user.displayAvatarURL)
   .setDescription(msg)
   client.guilds.get('651670086310035457').channels.get('708245760738721822').send({embed:exampleEmbed})
-  Boats.postStast(client.guilds.size, '707141747846676572').then(() => {
+  Boats.postStats(client.guilds.size, '707141747846676572').then(() => {
       console.log('Successfully updated server count.')
   }).catch((err) => {
       console.error(err)
@@ -55,7 +55,7 @@ client.on("ready", () => {
 
   // This event will run if the bot starts, and logs in, successfully.
   console.log(`Bot has started, with ${client.users.size} users, in ${client.channels.size} channels of ${client.guilds.size} guilds.`);
-  Boats.postStast(client.guilds.size, '707141747846676572').then(() => {
+  Boats.postStats(client.guilds.size, '707141747846676572').then(() => {
       console.log('Successfully updated server count.')
   }).catch((err) => {
       console.error(err)
